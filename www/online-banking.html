@@ -1034,7 +1034,7 @@ $(document).on('pageshow', '#transfer-confirmation', function() {
                   	<label for="check-photo">Check Photo:</label>
                     <div class="ui-grid-a">
                         <div class="ui-block-a">
-                            <div id="load-check-front"><a href="javascript://" onClick="$('#front').click();">Front</a></div>
+                            <div id="load-check-front"><a href="javascript://" onClick="takePicture('front')">Front</a></div>
                             <div id="check-front" class="check-image">
                                 <input id="front" type="file" accept="image/*" capture="camera" style="display: none;">
                                 <div class="ui-icon-loading white"><img style="display: none;" /></div>
@@ -1042,7 +1042,7 @@ $(document).on('pageshow', '#transfer-confirmation', function() {
                             <div style="clear: both;"></div>
                         </div>
                         <div class="ui-block-b">
-                            <div id="load-check-back"><a href="javascript://" onClick="$('#back').click();">Back</a></div>
+                            <div id="load-check-back"><a href="javascript://" onClick="takePicture('back')">Back</a></div>
                             <div id="check-back" class="check-image">
                                 <input id="back" type="file" accept="image/*" capture="camera" style="display: none;">
                                 <div class="ui-icon-loading white"><img style="display: none;" /></div>

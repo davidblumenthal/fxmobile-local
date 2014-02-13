@@ -324,3 +324,18 @@ $.init = function (page_id){
 		});
 
 	}
+
+function takePicture(pictureId){
+	if (typeof(cordova) !== 'undefined' && cordova !== null) {
+		cordova.plugins.barcodeScanner.scan(
+				function (result) {
+					console.log("Success on picture");
+				}, 
+				function (error) {
+					alert("Scanning failed: " + error);
+				}
+		);
+	} else {
+		$('#' + pictureId).click();
+	}
+}//takePicture
