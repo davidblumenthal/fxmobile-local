@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<!-- pile:fxair page:accounts -->
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Accounts</title>
+	<link rel="stylesheet" href="../css/jquery.mobile-1.2.1.css" />
+    <link rel="stylesheet" href="../css/default-draft2.css" />
+    <link rel="stylesheet" href="../css/institution.css" />
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/jquery.mobile-1.2.1.min.js"></script>
+    <script src="../js/functions-draft2.js"></script>
+    <script src="../js/db.js"></script>
+    <script>
+	$(document).ready(function() {
+		$.init();
+		});
+	</script>
+</head>
+<body>
+<div id="account-summary" data-role="page">
+
+  <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control"title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help" rel="external">Help</a></li>
+            </ul>
+        </nav>
+        <div id="menu" class="menu" data-role="popup" data-corners="false" data-position-to="#nav">
+          	<div class="clear"></div>
+        </div>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+</header><!-- /header -->
+    
+	<div data-role="content">
+	  <h3>Account Summary</h3>
+      <div style="clear: both;"></div>
+      <ul id="account_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a" data-filter="true" data-filter-theme="d">
+        </ul>
+    </div><!-- /content -->
+ 
+	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+
+$(document).on('pageshow', '#account-summary', function() {
+	$.get_accounts(start);
+	});
+
+</script>
+
+</div><!-- end account-summary page -->
+
+<div id="account-activity" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+    	<a href="#account-summary" class="back-button" data-role="button" data-inline="true" data-icon="arrow-l" data-rel="back" data-mini="true" data-theme="a">Back</a>
+    	<h3>Account Activity</h3>
+        <div style="clear: both;"></div>
+        <ul id="transaction_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a" data-filter="true" data-filter-theme="d">
+        	<li id="title" data-role="list-divider">Account Activity</li>
+        	<li data-icon="false"><a href="#" id="detail-link" rel="external">Vew Account Detail</a></li>
+            <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                        	
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$256.40</div>
+                              	<div class="column-3">AMERICAN AIRLI AA UWCM</div>
+                            
+                        </h3>
+                        <div class="transaction-content">
+                      		<strong>Date:</strong> <span class="value">MM/DD/YYYY</span><br />
+                        	<strong>Amount:</strong> <span class="value">$12,345,67</span><br />
+                      		<strong class="">Description:</strong> <span class="value">Something goes here</span></div>
+                    	</div>
+                </li>
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013                   		      </div>
+                                <div class="column-2 align-right ellipsis" id="balance">$0.00</div>
+                                <div class="column-3">AMERICAN AIRLI AA</div>
+                        </h3>
+                        <div class="transaction-content">
+                      		<strong>Date:</strong> <span class="value">MM/DD/YYYY</span><br />
+                        	<strong>Amount:</strong> <span class="value">$12,345,67</span><br />
+                      		<strong class="">Description:</strong> <span class="value">Something goes here</span></div>
+                    	</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$1,011.90</div>
+                                <div class="column-3">CVS PHARMACY #7133</div>
+                        </h3>
+                        <div class="transaction-content">
+                      		<strong>Date:</strong> <span class="value">MM/DD/YYYY</span><br />
+                        	<strong>Amount:</strong> <span class="value">$12,345,67</span><br />
+                      		<strong class="">Description:</strong> <span class="value">Something goes here</span></div>
+                    	</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013</div>
+                              <div class="column-2 align-right ellipsis" id="balance">$75.00</div>
+                              <div class="column-3">AMERICAN AIRLI AA AFTX</div>
+                        </h3>
+                        <div class="transaction-content">
+                      		<strong>Date:</strong> <span class="value">MM/DD/YYYY</span><br />
+                        	<strong>Amount:</strong> <span class="value">$12,345,67</span><br />
+                      		<strong class="">Description:</strong> <span class="value">Something goes here</span></div>
+                    	</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                              <div class="column-1">10/04/2013</div>
+                              <div class="column-2 align-right ellipsis" id="balance">$0.00</div>
+                              <div class="column-3">AMERICAN AIRLI AA</div>
+                        </h3>
+                        <div class="transaction-content">
+                      		<strong>Date:</strong> <span class="value">MM/DD/YYYY</span><br />
+                        	<strong>Amount:</strong> <span class="value">$12,345,67</span><br />
+                      		<strong class="">Description:</strong> <span class="value">Something goes here</span></div>
+                    	</div>
+                </li>
+                
+                <li data-icon="false"><a href="javascript:get_transactions(0);" id="load-more">load more transactions</a></li>
+        </ul>
+  	</div>
+    <!-- /content -->
+	</div>
+    
+    <footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#account-activity', function() {
+	//$.get_transactions(id);
+	});
+</script> 
+
+</div><!-- end account-activity page -->
+
+<div id="account-detail" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+    	<a href="#account-detail" class="back-button" data-role="button" data-inline="true" data-icon="arrow-l" data-rel="back" data-mini="true" data-theme="a">Back</a>
+		<h3>Account Detail</h3>
+        <ul id="account-info" data-role="listview" data-inset="true" data-mini="true" data-theme="c" data-dividertheme="a">
+        	<li id="title" data-role="list-divider">Account Detail</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Account:</strong></div>
+                    <div class="column-2 align-right" id="balance"> Mickey Mouse</div>
+                </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Account #:</strong></div>
+                    <div class="column-2 align-right" id="balance"> Checking *0058</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Available Balance:</strong></div>
+                    <div class="column-2 align-right" id="balance"> $578,584.77</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Current Balance:</strong></div>
+                    <div class="column-2 align-right" id="balance"> $582,983.17</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>As Of:</strong></div>
+                    <div class="column-2 align-right" id="balance"> 04/30/2013 CDT</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Account Owner:</strong></div>
+                    <div class="column-2 align-right" id="balance"> Mickey Mouse</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Account Nickname:</strong></div>
+                    <div class="column-2 align-right" id="balance"> Jones 1</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Account Type:</strong></div>
+                    <div class="column-2 align-right" id="balance"> Checking</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Product:</strong></div>
+                    <div class="column-2 align-right" id="balance"> Club Checking</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Date Opened:</strong></div>
+                    <div class="column-2 align-right" id="balance"> 02/01/2008</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><b>Interest Accrued, Not Yet Paid:</b></div>
+                    <div class="column-2 align-right" id="balance"> $0.00</div>
+                </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Interest Paid This Year:</strong></div>
+                    <div class="column-2 align-right" id="balance"> $0.00</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Interest Paid Last Year:</strong></div>
+                    <div class="column-2 align-right" id="balance"> $0.00</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Overdraft Limit:</strong></div>
+                    <div class="column-2 align-right" id="balance"> $1,000.00</div>
+              </div>
+        	</li>
+        	<li><div class="ui-grid-a">
+                    <div class="column-1"><strong>Balance Adjustment:</strong></div>
+                    <div class="column-2 align-right" id="balance"> -$4,398.40</div>
+              </div>
+           	</li>
+        </ul>
+        
+        <div class="long-desc">
+        	<strong>NOTE:</strong> Some transaction activity displayed below may be pending. Examples are Unposted External Transfers, deposits, withdrawals, or card
+            purchases made during the current business day. These may affect both your current and available balance. 
+            <a target="_blank" href="https://secure2.fundsxpress.com/secure/SSBOMD/PendingTransactions.htm" rel="external">Click here to learn more</a>.
+        </div>
+        
+    <!-- /content -->
+	</div>
+    
+    <footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+
+$(document).on('pageshow', '#account-detail', function() {
+	});
+	
+</script> 
+
+</div><!-- end account-detail page -->
+
+<div id="payments" data-role="page">
+
+  <header>
+  <div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+</header><!-- /header -->
+    
+	<div data-role="content">
+  	  <h3>Payments</h3>
+   	  <div style="clear: both;"></div>
+      	<ul id="account_list" data-role="listview" data-inset="true" data-theme="c">
+      		<li data-icon="false"><a href="#pay-bill" id="summary-button" rel="external" data-ajax="false">Pay Bill</a></li>
+      		<li data-icon="false"><a href="#scheduled-payments" id="summary-button" rel="external" data-ajax="false">Scheduled Payments</a></li>
+      		<li data-icon="false"><a href="#recent-payments" id="summary-button" rel="external" data-ajax="false">Recent Payments</a></li>
+      	</ul>
+    </div><!-- /content -->
+ 
+	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+
+$(document).on('pageshow', '#payments', function() {
+	});
+
+</script>
+
+</div><!-- end payments page -->
+
+<div id="pay-bill" data-role="page">
+
+  <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav data-role="navbar" id="nav" role="navigation">
+            <a href="#menu" class="control" data-rel="popup" title="Show navigation"><span></span></a>
+            <a href="#menu" class="control" data-rel="popup" title="Hide navigation"><span></span></a>
+        </nav>
+        <div id="menu" class="menu" data-role="popup" data-corners="false">
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </div>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+</header><!-- /header -->
+    
+	<div data-role="content">
+  	  <h3>Pay Bill</h3>
+    <div style="clear: both;"></div>
+    <form action="form-handler.asp" id="pay-bill-form" method="post">
+      	<ul id="account_list" data-role="listview" data-inset="true" data-theme="c">
+      		<li>
+            <div class="form-row">
+                    <select name="payee" id="payee">
+                        <option value="">Payee</option>
+                        <option value="Payee #1">Payee #1</option>
+                        <option value="Payee #2">Payee #2</option>
+                        <option value="Payee #3">Payee #3</option>
+                        <option value="Payee #4">Payee #4</option>
+                        <option value="Payee #5">Payee #5</option>
+                    </select>
+              </div>
+            <div class="form-row">
+                    <select name="from_account" id="from_account">
+                        <option value="">Pay from Account</option>
+                        <option value="Account 1">Account 1</option>
+                        <option value="Account 2">Account 2</option>
+                        <option value="Account 3">Account 3</option>
+                        <option value="Account 4">Account 4</option>
+                        <option value="Account 5">Account 5</option>
+                    </select>
+              </div>
+                <div  class="form-row">
+                    <label for="payment_date">Payment On:</label>
+                    <input type="date" id="payment_date" name="payment_date" readonly="readonly" value="01/01/2014" data-role="datebox" data-options='{"mode": "calbox", "themeHeader": "c", "themeDate":"c", "themeDateToday": "c", "calUsePickers": true, "calNoHeader": true, "calControlGroup": true, "afterToday": true}' />
+                </div>
+                <div class="form-row">
+                    <label for="payment_amount">Amount:</label>
+                    <div><span class="currency_indicator">$</span><input type="number" step="0.01" name="payment_amount" id="payment_amount" value="" /></div>
+                </div>
+                <div class="form-row">
+                  <textarea name="comment" id="comment" placeholder="Memo"></textarea>
+                </div>
+          
+            	<div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="submit" data-role="button" data-theme="h" id="submit" value="Submit" /></div>
+                    <div class="ui-block-b"><input type="button" data-role="button" id="cancel" value="Cancel" data-theme="d" onClick="window.open('#account-summary')" /></div>
+                </div><!-- /grid-a -->
+              	
+              
+         	</li>
+      	</ul>
+        </form>
+    </div><!-- /content -->
+ 
+	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+
+$(document).on('pageshow', '#pay-bill', function() {
+	});
+	
+</script>
+
+</div><!-- end pay-bill page -->
+
+<div id="pay-bill-confirmation" data-role="page">
+
+  <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav data-role="navbar" id="nav" role="navigation">
+            <a href="#menu" class="control" data-rel="popup" title="Show navigation"><span></span></a>
+            <a href="#menu" class="control" data-rel="popup" title="Hide navigation"><span></span></a>
+        </nav>
+        <div id="menu" class="menu" data-role="popup" data-corners="false">
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </div>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+</header><!-- /header -->
+    
+	<div data-role="content">
+  	  <h3>Confirm Payment</h3>
+    <div style="clear: both;"></div>
+    <form action="pay-bill-complete.html" data-ajax="false">
+      	<ul id="account_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">
+        	<li id="title" data-role="list-divider">Payment Details</li>
+      		<li><strong>Payee:</strong> Payee #2 </li>
+            <li><strong>Pay from Account:</strong> Accounnt #1 </li>
+          	<li><strong>Payment On:</strong> 12/31/2013</li>
+            <li><strong>Amount: </strong>$1.00</li>
+            <li><strong>Memo: </strong>
+            <li>
+            	<div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="submit" data-role="button" data-theme="h" id="submit" value="Continue" /></div>
+                    <div class="ui-block-b"><input type="button" data-role="button" id="cancel" value="Cancel" data-theme="d" onClick="window.open('#account-summary')" /></div>
+                </div><!-- /grid-a -->
+              	
+              
+         	</li>
+      	</ul>
+        </form>
+    </div><!-- /content -->
+ 
+	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+var start = 0;
+
+$(document).on('pageshow', '#pay-bill-confirmation', function() {
+	});
+</script>
+
+</div><!-- end pay-bill-confirmation page -->
+
+<div id="pay-bill-complete" data-role="page">
+
+  <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav data-role="navbar" id="nav" role="navigation">
+            <a href="#menu" class="control" data-rel="popup" title="Show navigation"><span></span></a>
+            <a href="#menu" class="control" data-rel="popup" title="Hide navigation"><span></span></a>
+        </nav>
+        <div id="menu" class="menu" data-role="popup" data-corners="false">
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </div>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+</header><!-- /header -->
+    
+	<div data-role="content">
+  	  <h3>Payment Scheduled</h3>
+    <div style="clear: both;"></div>
+    
+      	<ul id="account_list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">
+        	<li id="title" data-role="list-divider">Payment Details</li>
+      		<li><strong>Payee:</strong> Payee #2 </li>
+            <li><strong>Pay from Account:</strong> Account #1 </li>
+          	<li><strong>Payment On:</strong> 12/31/2013</li>
+            <li><strong>Amount:</strong> $1.00</li>
+            <li><strong>Memo:</strong></li>
+            <li><strong>Ref #:</strong> 1234567890  </li>         
+            <li><button onClick="window.open('payments.html','_self');" rel="external" data-role="button" data-theme="h">Done</button></li>
+      	</ul>
+        
+    </div><!-- /content -->
+ 
+	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+var start = 0;
+
+$(document).on('pageshow', '#pay-bill-complete', function() {
+	});
+</script>
+
+</div><!-- end pay-bill-complete page -->
+
+<div id="scheduled-payments" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+	  <h3>Scheduled Payments</h3>
+        <div style="clear: both;"></div>
+        <ul id="scheduled-payments-list" class="transaction-list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a" data-filter="true" data-filter-theme="d">
+        	<li id="title" data-role="list-divider"></li>
+            <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                        	
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$256.40</div>
+                              	<div class="column-3">AMERICAN AIRLI AA UWCM</div>
+                            
+                        </h3>
+                        <div class="transaction-content">
+                            <strong>Payee:</strong> Payee #2 <br>
+                            <strong>Pay from Account:</strong> Account #1<br>
+                            <strong>Payment On:</strong> 12/31/2013<br>
+                            <strong>Amount: </strong>$1.00<br>
+                            <strong>Memo: </strong><br>
+                            <strong>Ref #:</strong> 1234567890
+                	</div>
+                </div>
+          </li>
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013                   		      </div>
+                                <div class="column-2 align-right ellipsis" id="balance">$0.00</div>
+                                <div class="column-3">AMERICAN AIRLI AA</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                              <strong>Pay from Account:</strong> Account #1<br>
+                              <strong>Payment On:</strong> 12/31/2013 <strong><br>
+                              Amount: </strong>$1.00<br>
+                              <strong>Memo: </strong><br>
+                            <strong>Ref #:</strong> 1234567890 </div>
+               	  		</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$1,011.90</div>
+                                <div class="column-3">CVS PHARMACY #7133</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                  <strong>Ref #:</strong> 1234567890 </div></div></li>
+                  
+                  <li><div data-role="collapsible" data-theme="c" data-content-theme="b">
+                  <h3>
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$1,011.90</div>
+                                <div class="column-3">CVS PHARMACY #7133</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                  <strong>Ref #:</strong> 1234567890 </div>
+               	  </div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                              <div class="column-1">10/04/2013</div>
+                              <div class="column-2 align-right ellipsis" id="balance">$0.00</div>
+                              <div class="column-3">AMERICAN AIRLI AA</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                        <strong>Ref #:</strong> 1234567890 </div>
+               	  </div>
+                </li>
+                
+                <li data-icon="false"><a href="javascript:$.get_payments('scheduled-payments-list',0);" id="load-more">load more transactions</a></li>
+        </ul>
+  	</div>
+    <!-- /content -->
+    
+    <footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#scheduled-payments', function() {
+	//$.get_scheduled_transactions(id);
+	});
+</script> 
+
+</div><!-- end scheduled-payments page -->
+
+<div id="recent-payments" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+    	<a href="#account-summary" class="back-button" data-role="button" data-inline="true" data-icon="arrow-l" data-rel="back" data-mini="true" data-theme="a">Back</a>
+    	<h3>Recent Payments</h3>
+        <div style="clear: both;"></div>
+        <ul id="recent-payments-list" class="transaction-list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a" data-filter="true" data-filter-theme="d">
+        	<li id="title" data-role="list-divider"></li>
+            <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                        	
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$256.40</div>
+                              	<div class="column-3">AMERICAN AIRLI AA UWCM</div>
+                            
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                      <strong>Ref #:</strong> 1234567890 </div>
+                    	</div>
+                </li>
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013                   		      </div>
+                                <div class="column-2 align-right ellipsis" id="balance">$0.00</div>
+                                <div class="column-3">AMERICAN AIRLI AA</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                      <strong>Ref #:</strong> 1234567890 </div>
+                    	</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013</div>
+                                <div class="column-2 align-right ellipsis" id="balance">$1,011.90</div>
+                                <div class="column-3">CVS PHARMACY #7133</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                      <strong>Ref #:</strong> 1234567890 </div>
+                    	</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                                <div class="column-1">10/04/2013</div>
+                              <div class="column-2 align-right ellipsis" id="balance">$75.00</div>
+                              <div class="column-3">AMERICAN AIRLI AA AFTX</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                      <strong>Ref #:</strong> 1234567890 </div>
+                    	</div>
+                </li>
+                
+                <li>
+                	<div data-role="collapsible" data-theme="c" data-content-theme="b">
+                        <h3>
+                              <div class="column-1">10/04/2013</div>
+                              <div class="column-2 align-right ellipsis" id="balance">$0.00</div>
+                              <div class="column-3">AMERICAN AIRLI AA</div>
+                        </h3>
+                        <div class="transaction-content"><strong>Payee:</strong> Payee #2 <br>
+                          <strong>Pay from Account:</strong> Account #1<br>
+                          <strong>Payment On:</strong> 12/31/2013 <br>
+                          <strong>Amount: </strong>$1.00<br>
+                          <strong>Memo: </strong><br>
+                      <strong>Ref #:</strong> 1234567890 </div>
+                    	</div>
+                </li>
+                
+                <li data-icon="false"><a href="javascript:$.get_payments('recent-payments-list',0);" id="load-more">load more transactions</a></li>
+        </ul>
+  	</div>
+    <!-- /content -->
+    
+    <footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#recent-payments', function() {
+	//$.get_recent_payments(id);
+	});
+</script> 
+
+</div><!-- end recent-payments page -->
+
+<div id="transfer" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+		<h3>Transfer</h3>
+        <form action="transfer-confirmation.html" method="get" rel="external" data-ajax="false">
+        <ul id="transfer" data-role="listview" data-inset="true" data-mini="true" data-theme="c" data-dividertheme="a">
+        	<li id="title" data-role="list-divider">Transfer Details</li>
+            <li>
+            	<div class="form-row">
+                <label for="account">From Account:</label>
+                    <select id="account">
+                        <option value="">Default Account</option>
+                        <option value="">Account 1</option>
+                        <option value="">Account 2</option>
+                        <option value="">Account 3</option>
+                        <option value="">Account 4</option>
+                        <option value="">Account 5</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                <label for="account">To Account:</label>
+                    <select id="account">
+                        <option value="">Default Account</option>
+                        <option value="">Account 1</option>
+                        <option value="">Account 2</option>
+                        <option value="">Account 3</option>
+                        <option value="">Account 4</option>
+                        <option value="">Account 5</option>
+                    </select>
+                </div>
+            	<div  class="form-row">
+                    <label for="payment_date">Transfer Date:</label>
+                    <input type="date" id="transfer_date" name="transfer_date" readonly="readonly" value="01/01/2014" data-role="datebox" data-options='{"mode": "calbox", "themeHeader": "c", "themeDate":"c", "themeDateToday": "c", "calUsePickers": true, "calNoHeader": true, "calControlGroup": true, "afterToday": true}' />
+                </div>
+                <div class="form-row">
+                    <label for="amount">Amount:</label>
+                    <div><span class="currency_indicator">$</span><input type="number" name="amount" id="amount" value="" /></div>
+                </div>
+          
+            	<div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="submit" data-role="button" data-theme="h" id="submit" value="Submit" /></div>
+                    <div class="ui-block-b"><input type="reset" data-role="button" data-theme="d" id="clear" value="Clear" /></div>
+                </div><!-- /grid-a -->
+              <input type="button" data-role="button" id="cancel" value="Cancel" data-theme="c" onClick="window.open('#account-summary')" />
+            </li>
+    	</ul>
+        </form>
+	</div>
+    <!-- /content -->
+    
+    <footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#transfer', function() {
+	});
+
+</script> 
+
+</div><!-- end transfer page -->
+
+<div id="transfer-confirmation" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+    	<h3>Transfer was processed.</h3>
+        <ul id="transfer" data-role="listview" data-inset="true" data-mini="true" data-theme="c" data-dividertheme="a">
+        	<li id="title" data-role="list-divider">Transfer Details</li>
+            <li>
+                <div  class="form-row"><strong>From:</strong> <span class="value ellipsis">Account 1 ($$394.3)</span></div>
+            	<div class="form-row"><strong>To:</strong> <span class="value ellipsis">Account 2 ($578,585.77)</span></div>
+            	<div class="form-row"><strong>Amount:</strong> <span class="value ellipsis">$46.75</span></div>
+              <input type="button" data-role="button" id="cancel" value="Done" data-theme="h" onClick="window.open('#account-summary')" />
+           	</li>
+       	</ul>
+    </div>
+  	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#transfer-confirmation', function() {
+	});
+
+</script> 
+
+</div><!-- end transfer-confirmation page -->
+
+<div id="mobile-deposit" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+   	  <h3>Mobile Deposit</h3>
+      <p class="footnote">Cut off time is 5:00 pm Central Time</p>
+      <p>Funds will be available on the next business day following the day of your deposit</p>
+   	  <div style="clear: both;"></div>
+      <form enctype="multipart/form-data" method="post" action="" data-ajax="false">
+      	<ul id="account_list" data-role="listview" data-inset="true" data-theme="c">
+      		<li>
+            <div class="form-row">
+                    <select id="account">
+                        <option value="">Deposit To</option>
+                        <option value="">Account 1</option>
+                        <option value="">Account 2</option>
+                        <option value="">Account 3</option>
+                        <option value="">Account 4</option>
+                        <option value="">Account 5</option>
+                    </select>
+              </div>
+                <div class="form-row">
+                    <label for="amount">Amount:</label>
+                    <div><span class="currency_indicator">$</span><input type="number" step="0.01" name="amount" id="amount" value="" /></div>
+                </div>
+                <div class="form-row">
+                  	<label for="check-photo">Check Photo:</label>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <div id="load-check-front"><a href="javascript://" onClick="$('#front').click();">Front</a></div>
+                            <div id="check-front" class="check-image">
+                                <input id="front" type="file" accept="image/*" capture="camera" style="display: none;">
+                                <div class="ui-icon-loading white"><img style="display: none;" /></div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div id="load-check-back"><a href="javascript://" onClick="$('#back').click();">Back</a></div>
+                            <div id="check-back" class="check-image">
+                                <input id="back" type="file" accept="image/*" capture="camera" style="display: none;">
+                                <div class="ui-icon-loading white"><img style="display: none;" /></div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>
+          
+            	<div class="ui-grid-a">
+                    <div class="ui-block-a"><input type="submit" data-role="button" data-theme="h" id="submit" value="Continue" /></div>
+                    <div class="ui-block-b"><input type="button" data-role="button" id="cancel" value="Cancel" data-theme="d" onClick="window.open('#account-summary')" /></div>
+                </div><!-- /grid-a -->
+              	
+              
+         	</li>
+      	</ul>
+        </form>
+	</div><!-- /content -->
+  	<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#transfer-confirmation', function() {
+	});
+
+</script> 
+
+</div><!-- end mobile-deposit page -->
+
+<div id="help" data-role="page">
+	
+    <header>
+	<div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="#account-summary">Account Summary</a></li>
+                <li data-icon="false"><a href="#payments">Payments</a></li>
+                <li data-icon="false"><a href="#mobile-deposit">Mobile Deposit</a></li>
+                <li data-icon="false"><a href="#transfer">Transfer</a></li>
+                <li data-icon="false"><a href="#help">Help</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+
+	<div data-role="content">
+   	  <h3>Help</h3>
+       <div data-role="collapsible-set">
+            	<div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Quick Start</h3>
+                    <div class="help-content">
+                   	  <p>The bottom menu of Mobile Banking pages offers the following options:</p>
+                        <ul>
+                        	<li><b>Accounts: </b> View list of online accounts and balances. Select a specific account to see Account History. Click the account number again to see Account Details. </li>
+                        	<li><b>Transfer:</b> Transfer funds between enabled online accounts.</li>
+                        	<li><b>Log Off:</b> Securely end your session and log out of Mobile Banking.</li>
+                        	<li><b>Help:</b> Open this help page.</li>
+                        </ul>
+                        <p>
+                        <b>Navigate Accounts</b>: The Accounts page is the first page you
+                        see when you log in. Click an account name for
+                        <a href="#history">Account History</a>. Click the account name on the
+                        History page for <a href="#detail">Account Detail</a>, or click a
+                        transaction in the History for the <a href="#transaction">Transaction
+                        Detail</a>.
+                        </p><p>
+                        <b>Navigate Transfers</b>: Click <b>Transfers</b> in the bottom menu.
+                        The transfer process takes four steps, each with its own page. Select
+                        the <b>From</b> account, select the <b>To</b> account, enter the
+                        amount, and confirm the transfer. At any point before you click <b>
+                        Transfer Now</b>, you can go back a page or cancel the transfer.
+                        </p>
+                  	</div>
+              	</div>
+       
+            	<div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Accounts</h3>
+                    <div class="help-content">
+                    	<p>The Accounts page lists all of your online accounts. For
+security purposes, full account numbers are not shown.
+<p>
+<i>Links: </i>Click an account name to view Account
+<a href="#history">History</a>.
+</p><p>
+<i>Find: </i>The Accounts page is the first page you see when you log
+in. To return to it from any other page, click
+<b>Accounts</b> on the bottom menu.
+</p>
+                  	</div>
+              	</div>
+          	
+            	<div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Available Balance</h3>
+                    <div class="help-content">
+                    	<p>
+The Available Balance is the amount you can withdraw or transfer.
+It has been adjusted to include any recent unposted
+transactions or holds on your account balance.
+</p><p>
+<i>Find: </i> The <a href="#accounts">Accounts</a> page displays
+the Available Balance for each account. Other pages show the selected
+account's Available Balance.
+</p>
+                  	</div>
+              	</div>
+          	
+            <div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Account History</h3>
+                    <div class="help-content">
+                    	<p>
+The  History page shows 30 days of transactions for the
+selected account. Credits are marked with a plus (<b>+</b>)
+ and debits with a minus (<b>-</b>).</p>
+<p>Use the scroll bar and the <b>more&gt;&gt;</b> and
+<b>&lt;&lt;prev </b> links to see all transactions.</p>
+<p>
+<i>Links: </i>Click the account name for the<a href="#detail">
+Account Detail</a> or click any transaction description
+for the <a href="#transaction">Transaction Detail</a>.</p>
+<p><i>Find:</i></p>
+<ol>
+	<li>Click <b>Accounts</b> in the bottom menu.<br/>
+<i>The Accounts page appears.</i></li>
+	<li> Click the account name.<br/>
+  <i>The History page appears.</i></li>
+</ol>
+                  	</div>
+              	</div>
+          	
+            	<div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Account Detail</h3>
+                  <div class="help-content">
+                    	<p>
+The information on the Account Detail page varies depending
+on the services your financial institution offers and the type
+of account you view. Many account types display the following:</p>
+<ul>
+  <li>
+<b>Account: </b> Name of account owner.</li>
+  <li><b>Account #:</b> Account type and number.</li>
+  <li><b>Available Balance: </b>Amount you can withdraw or transfer, adjusted for
+    any recent unposted transactions or holds. </li>
+  <li><b>Current Balance:</b>Current balance (unadjusted).</li>
+  <li><b>As of: </b> Date the account balance was last updated.</li>
+  <li><b>Interest Paid This Year: </b> Total interest paid so far this year.</li>
+  <li><b>Interest Paid Last Year: </b> Total interest paid last year.<b>Balance Adjustment: </b> Total recent unposted transactions or holds.</li>
+</ul>
+<p>
+<i>Links: </i>Click the account name at the top
+of the page to return to <a href="#history">History</a>.
+</p><p>
+<i>Find: </i></p>
+<ol><li>
+  Click <b>Accounts</b> in the bottom menu.<br/>
+<i>The Accounts page appears.</i></li>
+  <li>Click the account name.<br/>
+  <i>The History page appears.</i></li>
+  <li>Click the account name again.<br/>
+    <i>The Account Detail page appears.</i></li>
+</ol>
+               	  </div>
+              	</div>
+          	
+            	<div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Transaction Detail</h3>
+                  <div class="help-content">
+                    	<p><b>Date: </b>Date the transaction was processed.<br/>
+<b>Amount: </b>Credits are marked with a plus (+) and debits are marked with a
+minus (-).<br/>
+<b>Description: </b>Type of transaction. Examples: <i>Transfer</i>
+(funds transferred to or from another account), <i>Check</i>,
+<i>Visa Check Card Pmt</i> (debit card payments).
+</p><p>
+<i>Links: </i>Click the account name at the top
+of the page to return to <a href="#history">History</a>.
+</p><p>
+<i>Find: </i></p>
+<ol>
+  <li>Click <b>Accounts</b> in the bottom menu.<br/>
+<i>The Accounts page appears.</i></li>
+  <li> Click the account name.<br/>
+  <i>The History page appears.</i></li>
+  <li> Click the transaction description.<br/>
+    <i>The Transaction Detail page appears.</i></li>
+</ol>
+                  	</div>
+              	</div>
+          	
+            	<div data-iconpos="right" data-role="collapsible" data-content-theme="b">
+                	<h3>Transfer Funds</h3>
+                    <div class="help-content">
+                    	<p>
+Transfers cannot be scheduled for a later date.
+Funds are transferred when you click <b>Transfer
+Now</b> on the last step of the transfer process.
+</p><p>
+<b>Note: </b>If you start a transfer after 
+5:00 pm CDT
+,
+ the transfer is processed the next business day.
+</p><p>
+<i>Transfer: </i></p>
+<ol>
+  <li>
+  Click <b>Transfer</b> in the bottom menu.<br/>
+<i>The Transfer-From page appears.</i></li>
+  <li> Click the account to transfer <b>from</b>. All
+    accounts that you can use are listed.<br/>
+  <i>The Transfer-To page appears.</i></li>
+  <li> Click the account to transfer <b>to</b>. All
+    accounts that you can use are listed.<br/>
+    <i>The Transfer Amount page appears.</i></li>
+  <li> Use your keypad to enter the amount to transfer.<br/>
+    <i>The Confirm Transfer page appears.</i></li>
+  <li> Review the transfer information. Click
+    <b>Transfer Now</b> to immediately transfer the funds.<br/>
+    <i>A confirmation page appears.</i></li>
+</ol>
+<p>
+<b>Note: </b>At any time before you click <b>Transfer Now</b>, you
+can return to earlier pages and correct information by clicking
+<b> &lt;&lt;Back </b>, or return to the Accounts
+page without making a transfer by clicking <b>Cancel </b>.
+</p>
+                  	</div>
+              	</div>
+          </div>
+    <!-- /content -->
+    </div>
+    
+    <footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow','#help', function() {
+	});
+
+</script> 
+
+</div><!-- end help page -->
+
+<div id="log-off" data-role="page" data-dom-cache="false">
+
+	<header>
+    <div id="header" data-role="header" data-theme="c" data-position="fixed">
+  		<nav id="nav" role="navigation">
+            <a class="control" title="Show navigation"><span></span></a>
+            <a class="control" title="Hide navigation"><span></span></a>
+            <ul data-role="listview" data-theme="c">
+            	<li data-icon="false"><a href="login.html">Log In</a></li>
+            </ul>
+          	<div class="clear"></div>
+        </nav>
+		<h1>FI LOGO</h1>
+        <div id="logout">
+        	<a href="#log-off"><span></span>Log Out</a>
+        </div>
+	</div>
+	</header><!-- /header -->
+    
+	<div data-role="content">
+		<h3>Log Off</h3>
+      	<p>You are now logged out.</p>
+        <a href="login.html" data-rel="external" data-cache="false" data-role="button" data-theme="h">Login</a>
+    </div><!-- /content -->
+    
+<footer>
+    	<div id="footer">
+            <a href="contact.html" rel="external">Contact Us</a> | 
+            <a href="terms-conditions.html" rel="external">Terms &amp; Conditions</a>
+    	</div>
+    </footer>
+    <!-- /footer -->
+
+<script>
+$(document).on('pageshow', '#log-off', function() {
+	setTimeout('window.location.assign("login.html");', 8000);
+	});
+</script>
+</div><!-- /page -->
+</body>
+</html>
+

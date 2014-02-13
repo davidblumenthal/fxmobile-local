@@ -1,0 +1,214 @@
+@charset "UTF-8";
+/* CSS Document */
+
+form {margin: 0}
+h3 {margin: 0;}
+.form-row label {display: block;}
+.form-row .ui-input-datebox {margin-bottom: .5em;}
+input[type=number] {padding-left: 1.3em;}
+.currency_indicator {position: absolute; display: inline-block; font-size: 16px; height: 2.2em; line-height: 2.2em; padding: 0; margin: 0 0 0 .5em; font-weight: normal;}
+
+.login-links {margin-top: 2em; text-align: center;}
+.login-links a {text-decoration: none; display: block; line-height: 1.5em;}
+
+.back-button {float: right;}
+
+#header {position: fixed; width: 100%; height: 40px; z-index: 999;}
+#header.ui-header.ui-bar-a {background: #FFF; box-shadow: 0px 0px 8px #333; border-bottom-color: #999;}
+#header.ui-header h1 {width: 200px; height: 24px; text-indent: -9999em; overflow: hidden; margin: 0;}
+#header.ui-header .ui-title {margin: .4em auto .4em auto;}
+#content .ui-shadow {box-shadow:  none;}
+#content .ui-li-last, .ui-li.ui-field-contain.ui-li-last {
+	border-bottom-width: 1px;
+	}
+	
+.ui-btn-up-h, .ui-btn-hover-h, .ui-btn-down-h {text-decoration: none;}
+.ui-btn-up-c {background: #FFF;}
+
+.ui-listview-filter-inset { margin-top: 0}
+
+#account-summary .ui-li-static {font-weight: normal;}
+
+#account-summary .column-1 {width: 60%; display: inline-block; vertical-align: top;}
+#account-summary .column-2 {width: 37%; display: inline-block; vertical-align: top;}
+
+/*#transaction_list .column-1 {width: 64%; float: left; vertical-align: top; white-space:normal;}
+#transaction_list .column-2 {width: 34%; float: right; vertical-align: top;}
+#transaction_list .column-3 {width: 100%; display: block; vertical-align: top; font-weight: normal;}
+#transaction_list .transaction-content {padding: .3em; font-weight: normal; font-size: .9em; line-height: 1.5em;}
+#transaction_list li:last-child {padding: .5em;}*/
+
+#help-list .ui-li-static {background: transparent;}
+#help-list .ui-li .ui-btn-inner a.ui-link-inherit, #help-list .ui-li-static.ui-li
+ {padding: 0;}
+#help-list .ui-li-heading {margin: 0; font-weight: normal}
+#help-list li.ui-li-last div.ui-collapsible-collapsed { border-bottom-left-radius: .6em;border-bottom-right-radius: .6em;}
+#help-list li.ui-li-last div.ui-corner-bottom { border-bottom-left-radius: .6em;border-bottom-right-radius: .6em;}
+/*#help-list #account-title {margin-bottom: 3.5em;}*/
+#help-list .ui-collapsible-inset { margin: 0;;}
+#help-list li, #help-list .ui-listview-inset .ui-li {border: 0;}
+#help-list .ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner {padding-left: 34px;}
+#help-list .ui-collapsible-inset .ui-collapsible-content { border-radius: 0; border-color: #ddd;}
+#help-list .ui-collapsible-inset .ui-collapsible-heading .ui-btn {border-radius:0;}
+
+#help-list .column-1 {width: 64%; float: left; vertical-align: top; white-space:normal;}
+#help-list .column-2 {width: 34%; float: right; vertical-align: top;}
+#help-list .column-3 {width: 100%; clear: both; vertical-align: top; font-weight: normal;}
+#help-list .ui-li .ui-btn-inner a.ui-link-inherit, #help-list .ui-li-static.ui-li {padding:  0;}
+.help-content {padding: .3em; font-weight: normal; font-size: .9em; line-height: 1.5em;}
+.help-content .ui-li-desc, .help-content ul, .help-content ol { font-size: inherit; margin-bottom: 1em; white-space: normal;}
+
+#transaction_list .ui-li-static {background: transparent;}
+#transaction_list .ui-li-heading {margin: 0; font-weight: normal}
+#transaction_list li.ui-li-last div.ui-collapsible-collapsed { border-bottom-left-radius: .6em;border-bottom-right-radius: .6em;}
+#transaction_list li.ui-li-last div.ui-corner-bottom { border-bottom-left-radius: .6em;border-bottom-right-radius: .6em;}
+/*#transaction_list #account-title {margin-bottom: 3.5em;}*/
+#transaction_list .ui-collapsible-inset { margin: 0;}
+#transaction_list li, #transaction_list .ui-listview-inset .ui-li {border: 0;}
+#transaction_list .ui-collapsible-heading .ui-btn-icon-left .ui-btn-inner {padding-left: 34px;}
+#transaction_list .ui-collapsible-inset .ui-collapsible-content { border-radius: 0; border-color: #ddd;}
+#transaction_list .ui-collapsible-inset .ui-collapsible-heading .ui-btn {border-radius:0;}
+
+#transaction_list .column-1 {width: 64%; float: left; vertical-align: top; white-space:normal;}
+#transaction_list .column-2 {width: 34%; float: right; vertical-align: top;}
+#transaction_list .column-3 {width: 100%; clear: both; vertical-align: top; font-weight: normal;}
+#transaction_list .ui-li:not(:nth-child(2)) .ui-btn-inner a.ui-link-inherit, #transaction_list .ui-li-static.ui-li {padding:  0;}
+#transaction_list .transaction-content {padding: .3em; font-weight: normal; font-size: .9em; line-height: 1.5em;}
+#transaction_list li:last-child {padding: .5em;}
+
+#transaction_list li.ui-li-static:nth-child(2n+1).ui-btn-up-c {background: #f4f4f4;}
+
+.align-right {text-align: right;}
+#footer {display: block; width: 100%; text-align: center; font-size: .8em; padding-bottom: 1em;}
+#footer a {padding: 0 .3em; text-decoration: none;}
+
+#tnc{font-size: .6em;}
+nav .submenu {li: float: none;}
+.submenu {min-width:210px; display: none;}
+.submenu .ui-btn-up-a, .submenu .ui-btn-hover-a { background-image: none;}
+.submenu .ui-btn-text {padding-top: .4em; padding-bottom: .4em;}
+
+#landing-page .ui-collapsible-content { padding: 0; border: 0;}
+#landing-page #settings {padding: 0; border: 0;}
+#landing-page #settings h3 a {border-bottom: 0;}
+#landing-page #settings .ui-listview {margin: 0; border: 0;}
+#landing-page #settings .ui-listview a {font-weight: normal;}
+
+#transfer-confirmation .form-row {margin-bottom: .3em;}
+#transfer-confirmation .form-row strong {display: inline-block; width: 48%;}
+.ellipsis {display: inline-block; width: 50%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap}
+
+#help-list .column-1 .line2.ellipsis {width: 100%;}
+#help-list .transaction-content .value {line-height: 1.5em;}
+
+/*****************************************************************************/
+/**************************     #nav - navigation    *************************/
+/*****************************************************************************/
+
+#nav {position: absolute; top: auto; left: auto; font-size: 60%; width: 100%; z-index: 99;}
+
+#nav > a, #nav > a {display: none; text-decoration: none;}
+#nav li {position: relative; list-style: none;}
+#nav li a {color: #000; display: block;}
+#nav li a:active {background-color: #666; !important;}
+#nav li:first-child span:after {border: 0;}
+
+#nav > a.control {
+	font-size: 1.4em;
+	width: 2.6em; /* 50 */
+	height: 2.4em; /* 50 */
+	font-size: 1em;
+	font-weight: normal;
+	color: #666;
+	padding: 5px;
+	margin: 3px;
+	text-align: center;
+	background-color: transparent;
+	position: relative;
+	text-shadow: none;
+	line-height: 1em;
+	}
+
+#nav > a.control > span {
+	border: 0;
+	display: block;
+	content: '';
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: transparent url(../images/icon-menu.png) center repeat-x;
+	}
+#nav a.control span:after {border:0;}
+	
+#nav:not( :target ) > a:first-of-type,
+#nav:target > a:last-of-type {display: block;}
+
+#nav > ul {
+	display: none;}
+
+.ui-header #nav .ui-btn-inner {padding: .5em;}
+
+.menu {margin: 0;box-shadow: 0 7px 6px rgba(0,0,0,.4);}
+#menu-popup, #payments-menu-popup {width: 100%; }
+
+/* end #nav */
+
+#logout {position: absolute; z-index: 100; top: 0; right: 0; text-align: center;}
+#logout span {display: block; width: 12px; height: 12px; margin: 2px auto; background: transparent url(../images/icon-logout.png) center no-repeat;}
+#logout a { display: block; padding: 3px; overflow: hidden; font-size: .7em; font-weight: normal; text-align: center; color: #666; text-decoration: none; text-shadow: none;}
+
+#load-more {text-align: center; color: #2489ce; text-shadow: 1px 1px 1px #FFF;}
+
+#page-indicator {text-align: center; font-size: 90%;}
+
+#load-check-front, #load-check-back {width: 80%; padding: .5em; border-radius: .2em; background: #ddd; border: 1px solid #aaa; margin: 0 auto;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #eee /*{c-bdown-background-start}*/), to( #eee /*{c-bdown-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #eee /*{c-bdown-background-start}*/, #ddd /*{c-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #eee /*{c-bdown-background-start}*/, #ddd /*{c-bdown-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #eee /*{c-bdown-background-start}*/, #ddd /*{c-bdown-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #eee /*{c-bdown-background-start}*/, #ddd /*{c-bdown-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #eee /*{c-bdown-background-start}*/, #ddd /*{c-bdown-background-end}*/);
+	}
+#load-check-front a, #load-check-back a {display: block; background: transparent url(../images/icon-camera.png) right no-repeat; text-decoration: none; color: #333; padding-right: 30px;}
+.check-image {margin: .5em 0; text-align: center;}
+.check-image img {width: 100px; height: 75px;}
+
+.footnote {font-size: 80%;}
+
+.ui-icon-loading.white {background: transparent url(../images/ajax-loader-white.gif) center no-repeat; background-size: auto; }
+
+.ui-focus,
+.ui-btn:focus {
+	background: #ddd;
+	color: #000;
+	}
+
+.form-row.ui-focus {background: transparent;}
+
+.ui-li-divider {font-size: 1em;}
+
+.ui-btn-active {
+	border: 1px solid #ddd /*{c-bdown-border}*/;
+	background: #FFFFFF /*{c-bdown-background-color}*/;
+	font-weight: bold;
+	color: #000000 /*{c-bdown-color}*/;
+	text-shadow: 0 /*{c-bdown-shadow-x}*/ 1px /*{c-bdown-shadow-y}*/ 0 /*{c-bdown-shadow-radius}*/ #eeeeee /*{c-bdown-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #e5e5e5 /*{c-bdown-background-start}*/), to( #FFFFFF /*{c-bdown-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #e5e5e5 /*{c-bdown-background-start}*/, #FFFFFF /*{c-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #e5e5e5 /*{c-bdown-background-start}*/, #FFFFFF /*{c-bdown-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #e5e5e5 /*{c-bdown-background-start}*/, #FFFFFF /*{c-bdown-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #e5e5e5 /*{c-bdown-background-start}*/, #FFFFFF /*{c-bdown-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #e5e5e5 /*{c-bdown-background-start}*/, #FFFFFF /*{c-bdown-background-end}*/);
+	
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 240dpi) {
+		
+		#nav > a.control > span {background: transparent url(../images/icon-menu2x.png) center no-repeat; background-size:contain;}
+		#logout span {background: transparent url(../images/icon-logout2x.png) center no-repeat; background-size:contain;}
+		#load-check-front a, #load-check-back a {background: transparent url(../images/icon-camera2x.png) right no-repeat; background-size:contain;}
+		
+	   }
