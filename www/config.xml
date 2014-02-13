@@ -4,7 +4,7 @@
     id        = "com.blumenthal.fxmobile"
     versionCode="5"
     version   = "0.0.1">
-  <name>Online Banking Local</name>
+  <name>Local Online Banking</name>
   <description>
     Test FirstData fxMobile in PhoneGap - Local Files
   </description>
@@ -32,7 +32,9 @@
   <icon src="icon.png" />
   <gap:splash src="images/large.png" />
   <preference name="exit-on-suspend" value="true" />
-  <content src="draft2/login.html" />
+  <content src="index.html" />
+  
+  <feature name="http://api.phonegap.com/1.0/network"/>
   
   <!--
     Define access to external domains.
