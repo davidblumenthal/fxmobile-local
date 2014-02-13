@@ -4,13 +4,13 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Accounts</title>
-	<link rel="stylesheet" href="../css/jquery.mobile-1.2.1.css" />
-    <link rel="stylesheet" href="../css/default-draft2.css" />
-    <link rel="stylesheet" href="../css/institution.css" />
-    <script src="../js/jquery-1.8.3.min.js"></script>
-    <script src="../js/jquery.mobile-1.2.1.min.js"></script>
-    <script src="../js/functions-draft2.js"></script>
-    <script src="../js/db.js"></script>
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.1.css" />
+    <link rel="stylesheet" href="css/default-draft2.css" />
+    <link rel="stylesheet" href="css/institution.css" />
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.mobile-1.2.1.min.js"></script>
+    <script src="js/functions-draft2.js"></script>
+    <script src="js/db.js"></script>
     <script>
 	$(document).ready(function() {
 		$.init();
@@ -1310,7 +1310,7 @@ $(document).on('pageshow','#help', function() {
             <a class="control" title="Show navigation"><span></span></a>
             <a class="control" title="Hide navigation"><span></span></a>
             <ul data-role="listview" data-theme="c">
-            	<li data-icon="false"><a href="login.html">Log In</a></li>
+            	<li data-icon="false"><a href="index.html">Log In</a></li>
             </ul>
           	<div class="clear"></div>
         </nav>
@@ -1324,7 +1324,7 @@ $(document).on('pageshow','#help', function() {
 	<div data-role="content">
 		<h3>Log Off</h3>
       	<p>You are now logged out.</p>
-        <a href="login.html" data-rel="external" data-cache="false" data-role="button" data-theme="h">Login</a>
+        <a href="index.html" data-rel="external" data-cache="false" data-role="button" data-theme="h">Login</a>
     </div><!-- /content -->
     
 <footer>
@@ -1337,7 +1337,7 @@ $(document).on('pageshow','#help', function() {
 
 <script>
 $(document).on('pageshow', '#log-off', function() {
-	setTimeout('window.location.assign("login.html");', 8000);
+	setTimeout('window.location.assign("index.html");', 8000);
 	});
 </script>
 </div><!-- /page -->
